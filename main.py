@@ -1,6 +1,7 @@
 #lIBRERIA Numpy
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 # listas
 lista1=[1,2,3,4,5]
@@ -65,12 +66,26 @@ def funcion_y(x):
 
 def funcion_y2(x):
     y=3*x+2
-    print(type(y))
+    #print(type(y))
     print("Coordenadas ejex=",x)
     print("Coordenadas ejey=",y)
     return(y)
     
 #Casos de prueba
 x=np.linspace(-5,5,5)
+print(x)
 print(len(x))
 funcion_y2(x)
+
+
+
+t = np.arange(0.0, 2.0, 0.01)
+s = 1 + np.sin(2*np.pi*t)
+plt.plot(t, s)
+
+plt.xlabel('time (s)')
+plt.ylabel('voltage (mV)')
+plt.title('About as simple as it gets, folks')
+plt.grid(True)
+plt.savefig("test.png")
+plt.show()
