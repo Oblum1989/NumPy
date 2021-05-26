@@ -72,20 +72,88 @@ def funcion_y2(x):
     return(y)
     
 #Casos de prueba
-x=np.linspace(-5,5,5)
-print(x)
-print(len(x))
-funcion_y2(x)
+#x=np.linspace(-5,5,5)
+#print(x)
+#print(len(x))
+#funcion_y2(x)
+#
+#
+#
+#t = np.arange(0.0, 2.0, 0.01)
+#s = 1 + np.sin(2*np.pi*t)
+#plt.plot(t, s)
+#
+#plt.xlabel('time (s)')
+#plt.ylabel('voltage (mV)')
+#plt.title('About as simple as it gets, folks')
+#plt.grid(True)
+#plt.savefig("test.png")
+#plt.show()
+#ventana = plt.figure()
+#plano = ventana.gca()
+#plano.plot(x, funcion_y(x))
+#plt.show()
+
+def ejercicio_1(a,x):
+  y=a*x**3*np.sin(x**2)
+  return(y)
+
+def grafica_ejercicio_1 (j,k,n,a,num):
+  ventana=plt.figure(num)
+  plano=ventana.gca() 
+  x=np.linspace(j,k,n)
+  y=ejercicio_1(a,x)
+  plano.plot(x,y,'.--m',label='y=a*x**3*sin(x**2)')
+  plano.legend(loc=2)
+  plano.set_title(label='Ejercicio 1', color='c', size=20)
+  plano.set_xlabel(xlabel='eje x',labelpad=230)
+  plano.set_ylabel(ylabel='eje y',labelpad=450)
+  plano.spines['top'].set_visible(False)
+  plano.spines['right'].set_visible(False)
+  plano.spines['bottom'].set_position('zero')
+  plano.spines['left'].set_position('zero')
+  plano.set_xticks([-3.14,3.14])
+  return(ventana)
+
+#grafica_ejercicio_1(-3.14,3.14,100,0.1,1)
+#plt.show()
+
+def funcion_lineal(x,m,b):
+  y=m*x+b
+  print("Coordenadas ejex=",x)
+  print("Coordenadas ejey=",y)
+  return(y)
+
+def graficar_funcion_lineal(j,k,n,m,b,num):
+    ventana=plt.figure(num)# objeto
+    plano=ventana.gca() # superficie de dibujo
+    x=np.linspace(j,k,n)
+    y=funcion_lineal(x,m,b)
+    plano.plot(x,y,'h--c',label='y=mx+b')
+    plano.legend(loc=2)
+    plano.set_title(label='Funcion Lineal', color='r', size=20)
+    plano.spines['top'].set_visible(False)
+    plano.spines['right'].set_visible(False)
+    plano.spines['bottom'].set_position('zero')
+    plano.spines['left'].set_position('zero')
+    plano.set_xlabel(xlabel='eje x',labelpad=200)
+    plano.set_ylabel(ylabel='eje y',labelpad=300 )
+    plano.set_xticks([-3,3])
+    return(ventana)
+    
+
+#casos de prueba
+#graficar_funcion_lineal(-3,3,7,2,0,1) # y=2x
+#graficar_funcion_lineal(-3,3,7,-2,0,1) # y=-2x
+#plt.show()
 
 
+def graficar_varias_funciones():
+  ventana=plt.figure()
+  plano=ventana.add_gridspec (1,2)
+  plano1=ventana.add_subplot(plano[0,0])
+  plano2=ventana.add_subplot(plano[0,1])
+  return(ventana)
 
-t = np.arange(0.0, 2.0, 0.01)
-s = 1 + np.sin(2*np.pi*t)
-plt.plot(t, s)
-
-plt.xlabel('time (s)')
-plt.ylabel('voltage (mV)')
-plt.title('About as simple as it gets, folks')
-plt.grid(True)
-plt.savefig("test.png")
+graficar_varias_funciones()
 plt.show()
