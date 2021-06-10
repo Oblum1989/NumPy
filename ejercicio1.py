@@ -10,11 +10,11 @@ def funcion_descarga_condensador(t, u, r, c):
   return(v)
 
 def configurar_grafica(plano, title, xlabel, ylabel ):
-  plano.set_title(label = title, color = 'm', size = 10)
   plano.spines['top'].set_visible(False)
   plano.spines['right'].set_visible(False)
   plano.spines['bottom'].set_position('zero')
   plano.spines['left'].set_position('zero')
+  plano.set_title(label = title, color = 'm', size = 10)
   plano.set_xlabel(xlabel=xlabel,labelpad=10)
   plano.set_ylabel(ylabel=ylabel, labelpad=10)
 
